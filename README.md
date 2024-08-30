@@ -1,9 +1,16 @@
-# Mapster: Coursework for WAD2023 @ HTW Berlin
+# Mapster-Cloud: Coursework for DevOps @ HTW Berlin
 
-Team **Mapster**: [@lbeul](https://github.com/lbeul) & [@bettinaju](https://github.com/Bettinaju) :octocat:
+Team **Mapster-Cloud**: [Laura Hartstein](https://github.com/bibifant) & [Bettina Justus](https://github.com/Bettinaju) :octocat:
 
-Mapster is a Single Page Application (SPA) written in pure JavaScript without any frontend frameworks.
+Mapster-Clous is a Single Page Application (SPA) written in pure JavaScript without any frontend frameworks.
 It's powered by a Node/Express backend connected to a remote MongoDB instance.
+
+The Project Mapster-Cloud is ...
+TODO: add what we do when it's finish! 
+- containerized
+- CT/CI/CD Pipelines
+- deployed on stage
+- deployed on main 
 
 ### Setup
 
