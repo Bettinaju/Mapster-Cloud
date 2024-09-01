@@ -1,0 +1,32 @@
+services:
+  backend:
+    image: mapster
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongodb
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/local
+    networks:
+      - backend-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+#      - mongodb-data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
+
+#volumes:
+#  mongodb-data:
