@@ -18,9 +18,7 @@ COPY frontend/ /app/public/
 
 # Expose the port the app runs on
 EXPOSE 3003
-
-# Define environment variables (adjust as needed)
-ENV NODE_ENV=production
+#
 
 # Define the command to run your app
 CMD ["node", "index.js"]
