@@ -1,7 +1,7 @@
-const api = 'http://localhost:3003';
+const api = 'https://mapster-service-881300474435.europe-west3.run.app';
 
 export const getLocations = () =>
-  fetch('http://localhost:3003/nonsusloc', {
+  fetch(`${api}/nonsusloc`, {
     cache: 'no-cache',
   });
 
