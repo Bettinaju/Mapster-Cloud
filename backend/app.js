@@ -16,6 +16,7 @@ const connectToDatabase = async () => {
         await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000
         });
         console.log('Connected to MongoDB');
     } catch (error) {
@@ -39,11 +40,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Configure mongoDB
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to mongoDB'))
-  .catch((e) => console.error('Error connecting to mongoDB:', e.message));
+// // Configure mongoDB
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => console.log('Connected to mongoDB'))
+//   .catch((e) => console.error('Error connecting to mongoDB:', e.message));
 
 // Invoke middleware
 app.use(cors());
