@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Express.js Backend Service
+  backend:
+    image: node:20
+    working_dir: /usr/src/app
+    volumes:
+      - ./backend:/usr/src/app # Mount backend source code
+      - /usr/src/app/node_modules # Ensure node_modules are excluded from host volume
+    command: bash -c "npm install && npm start" # Install dependencies and run the backend
+    ports:
+      - '3003:3003'
+    depends_on:
+      - mongo # Wait for MongoDB service to be up
+    networks:
+      - app-network
+
+  # MongoDB Service
+  mongo:
+    build:
+      context: ./mongodb # Specify the build context for the custom MongoDB Dockerfile
+      dockerfile: Dockerfile # Use the Dockerfile in the /mongodb directory
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db # Persist MongoDB data
+    networks:
+      - app-network
+
+  # Frontend Service (served with NGINX)
+  frontend:
+    image: nginx:latest
+    volumes:
+      - ./frontend:/usr/share/nginx/html # Serve frontend files
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend # Ensure backend starts first
+    networks:
+      - app-network
+
+# Define the shared network for all services
+networks:
+  app-network:
+    driver: bridge
+
+# Define persistent volumes for MongoDB
+volumes:
+  mongo-data:
