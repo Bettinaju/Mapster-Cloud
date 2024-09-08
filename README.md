@@ -6,18 +6,20 @@ Mapster-Clous is a Single Page Application (SPA) written in pure JavaScript with
 It's powered by a Node/Express backend connected to a remote MongoDB instance.
 
 The Project Mapster-Cloud is ...
-TODO: add what we do when it's finish! 
+TODO: add what we do when it's finish!
+
 - containerized
 - CT/CI/CD Pipelines
 - deployed on stage
-- deployed on main 
+- deployed on main
 
 ### Setup
 
-- `frontend/...` runs in the browser without special requirements 
+- `frontend/...` runs in the browser without special requirements
 - `backend/...` is an npm project that has to be kicked-off:
   - Enter with `cd backend/` and run `npm i` to install dependencies
-  - Run `npm start` to run the backend using [nodemon](https://www.npmjs.com/package/nodemon)
+  - Run `npm run dev` to run the backend using [nodemon](https://www.npmjs.com/package/nodemon) for hot reloading
+    - Alternatively, run `npm start` to run the backend in production mode, without hot reloading
 
 ### Backend Dependencies
 
