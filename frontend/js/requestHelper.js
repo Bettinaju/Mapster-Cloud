@@ -1,7 +1,7 @@
 const api = 'http://localhost:3003';
 
 export const getLocations = () =>
-  fetch('http://localhost:3003/nonsusloc', {
+  fetch(`${api}/nonsusloc`, {
     cache: 'no-cache',
   });
 
