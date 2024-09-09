@@ -1,0 +1,18 @@
+services:
+  backend:
+    image: mapster
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://laura:pass1234@34.107.75.82:27017/mongo-db-mapster
+
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
