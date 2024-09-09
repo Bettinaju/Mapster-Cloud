@@ -19,7 +19,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
         with:
           service_account_key: ${{ secrets.GCP_KEYFILE }}
-          project_id: YOUR_PROJECT_ID
+          project_id: containerization-431907
 
       - name: Authenticate Docker to GCR
         run: gcloud auth configure-docker
