@@ -57,9 +57,4 @@ app.use('/nonsusloc', locationsRouter);
 // Use custom error handler
 app.use(errorHandler);
 
-// //test connection to backend for containerization
-// app.get('/', (req, res) => {
-//     res.send('Welcome to the Mapster API');
-// });
-
 export default app;
