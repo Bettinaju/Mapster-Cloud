@@ -1,11 +1,9 @@
 name: GCP Deploy
 
-# on:
-#   push:
-#     branches:
-#       - main
-
-on: [push]
+on:
+  push:
+    branches:
+      - staging
 
 jobs:
   build:
