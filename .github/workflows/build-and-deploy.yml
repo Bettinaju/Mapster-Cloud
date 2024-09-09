@@ -22,7 +22,8 @@ jobs:
           project_id: containerization-431907
 
       - name: Authenticate Docker to GCR
-        run: gcloud auth configure-docker
+        run: |
+          gcloud auth configure-docker us-docker.pkg.dev
 
       - name: Build and push Docker image
         run: |
