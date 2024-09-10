@@ -31,14 +31,14 @@ jobs:
 
       - name: Build and push Docker image (Production)
         run: |
-          docker build -t mapster-cloud-prod:latest .
-          docker tag mapster-cloud-prod:latest gcr.io/containerization-431907/mapster-cloud-prod:latest
-          docker push gcr.io/containerization-431907/mapster-cloud-prod:latest
+          docker build -t mapster-cloud-production:latest .
+          docker tag mapster-cloud-production:latest gcr.io/containerization-431907/mapster-cloud-prod:latest
+          docker push gcr.io/containerization-431907/mapster-cloud-production:latest
 
       - name: Deploy to Cloud Run (Production)
         run: |
-          gcloud run deploy mapster-service-prod \
-            --image gcr.io/containerization-431907/mapster-cloud-prod:latest \
+          gcloud run deploy mapster-service-production \
+            --image gcr.io/containerization-431907/mapster-cloud-production:latest \
             --platform managed \
             --region europe-west3 \
             --allow-unauthenticated \
