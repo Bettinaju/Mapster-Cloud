@@ -32,7 +32,7 @@ jobs:
       - name: Build and push Docker image (Production)
         run: |
           docker build -t mapster-cloud-production:latest .
-          docker tag mapster-cloud-production:latest gcr.io/containerization-431907/mapster-cloud-prod:latest
+          docker tag mapster-cloud-production:latest gcr.io/containerization-431907/mapster-cloud-production:latest
           docker push gcr.io/containerization-431907/mapster-cloud-production:latest
 
       - name: Deploy to Cloud Run (Production)
