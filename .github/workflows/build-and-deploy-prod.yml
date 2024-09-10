@@ -42,4 +42,3 @@ jobs:
             --platform managed \
             --region europe-west3 \
             --allow-unauthenticated \
-            --set-env-vars DATABASE_URL=${{ secrets.PROD_DATABASE_URL }}
