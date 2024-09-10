@@ -1,0 +1,45 @@
+name: GCP Deploy
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+on: [push]
+
+jobs:
+  build-production:
+    runs-on: ubuntu-latest
+    name: Build and Deploy to Production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_KEYFILE }}' # Same credentials for production
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: containerization-431907 # Same GCP project ID for production
+
+      - name: Authenticate Docker to GCR
+        run: gcloud auth configure-docker
+
+      - name: Build and push Docker image (Production)
+        run: |
+          docker build -t mapster-cloud-prod:latest .
+          docker tag mapster-cloud-prod:latest gcr.io/containerization-431907/mapster-cloud-prod:latest
+          docker push gcr.io/containerization-431907/mapster-cloud-prod:latest
+
+      - name: Deploy to Cloud Run (Production)
+        run: |
+          gcloud run deploy mapster-service-prod \
+            --image gcr.io/containerization-431907/mapster-cloud-prod:latest \
+            --platform managed \
+            --region europe-west3 \
+            --allow-unauthenticated \
+            --set-env-vars DATABASE_URL=${{ secrets.PROD_DATABASE_URL }}
