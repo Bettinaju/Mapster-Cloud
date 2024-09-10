@@ -10,7 +10,6 @@ on: [push]
 
 jobs:
   build-staging:
-    if: github.ref == 'refs/heads/staging' # Trigger only on staging branch
     runs-on: ubuntu-latest
     name: Build and Deploy to Staging
 
@@ -47,7 +46,6 @@ jobs:
             --set-env-vars DATABASE_URL=${{ secrets.STAGING_DATABASE_URL }}
 
   build-production:
-    if: github.ref == 'refs/heads/main' # Trigger only on main branch
     runs-on: ubuntu-latest
     name: Build and Deploy to Production
 
