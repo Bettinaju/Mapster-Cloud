@@ -12,21 +12,20 @@ import errorHandler from './utils/errorHandler.js';
 const app = express();
 
 const connectToDatabase = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 30000
-        });
-        console.log('Connected to MongoDB');
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message);
-        process.exit(1); // Exit the process if the database connection fails
-    }
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000,
+    });
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+    process.exit(1); // Exit the process if the database connection fails
+  }
 };
 
 connectToDatabase();
-
 
 // Determine the directory name from import.meta.url
 const __filename = fileURLToPath(import.meta.url);
@@ -36,15 +35,9 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Default route to serve your main HTML file
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/', (_, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-// // Configure mongoDB
-// mongoose
-//   .connect(process.env.MONGODB_URI)
-//   .then(() => console.log('Connected to mongoDB'))
-//   .catch((e) => console.error('Error connecting to mongoDB:', e.message));
 
 // Invoke middleware
 app.use(cors());

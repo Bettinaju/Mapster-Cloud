@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3003"
+      - '3003:3003'
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://laura:pass1234@34.107.75.82:27017/mongo-db-mapster
+      - MONGODB_URI=mongodb://${MONGO_PROD_USER}:${MONGO_PROD_PASSWORD}@${MONGO_PROD_URL}
 
     networks:
       - backend-network
