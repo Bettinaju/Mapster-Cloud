@@ -1,6 +1,9 @@
 name: Frontend CT
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'feature/*'
 
 jobs:
   build:
