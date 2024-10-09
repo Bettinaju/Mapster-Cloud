@@ -2,16 +2,15 @@
 
 Team **Mapster-Cloud**: [Laura Hartstein](https://github.com/bibifant) & [Bettina Justus](https://github.com/Bettinaju) :octocat:
 
-Mapster-Clous is a Single Page Application (SPA) written in pure JavaScript without any frontend frameworks.
-It's powered by a Node/Express backend connected to a remote MongoDB instance.
+Mapster-Cloud is an extension of Mapster into a Dev Ops project, to develop end to end through the dev ops lifecycle. 
 
-The Project Mapster-Cloud is ...
-TODO: add what we do when it's finish!
+Mapster-Cloud is an extension of Mapster in which the Single Page Application was containerized and a CI CD pipeline was created.
 
-- containerized
-- CT/CI/CD Pipelines
-- deployed on stage
-- deployed on main
+The following has been adjusted for this:
+
+- project was containerized with Docker
+- deployed twice to have a stage and a production environment using Google Cloud Platform
+- CI/CD pipeline via GitHub Actions has been added 
 
 ### Setup
 
