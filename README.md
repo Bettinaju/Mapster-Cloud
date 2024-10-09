@@ -51,8 +51,8 @@ In order to use this Atlas instance, you need a username && password.
 1. Never work directly on `main` -- new feature, new branch
 2. We use a `merge`-based flow, so avoid `rebase` on main
 3. No local merge&push -- Pull Requests only
-4. Ideally, have your PR approved before merging
-5. Keep your commit message short, expand to multi-line if necessary
+5. PR has to be approved before merging into staging or main
+6. Keep your commit message short, expand to multi-line if necessary
 
 ### Miscellanious
 
