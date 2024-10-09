@@ -10,7 +10,9 @@ The following has been adjusted for this:
 
 - project was containerized with Docker
 - deployed twice to have a stage and a production environment using Google Cloud Platform
-- CI/CD pipeline via GitHub Actions has been added 
+- CI/CD pipeline via GitHub Actions has been added
+
+### Information: Project is not live anymore, because the GCP budget limit for the semester has been reached!
 
 ### Setup
 
@@ -51,7 +53,7 @@ In order to use this Atlas instance, you need a username && password.
 1. Never work directly on `main` -- new feature, new branch
 2. We use a `merge`-based flow, so avoid `rebase` on main
 3. No local merge&push -- Pull Requests only
-5. PR has to be approved before merging into staging or main
+5. PR has to be approved and the tests have to run successfully before merging into staging or main
 6. Keep your commit message short, expand to multi-line if necessary
 
 ### Miscellanious
